@@ -1,0 +1,21 @@
+ログを添付する前に
+
+ログには次のものが含まれることがあります：
+・Cookie、セッショントークン、Authorization ヘッダー
+・メールアドレス、ユーザー名、ホームディレクトリのパス
+・会話内容、顧客データ
+
+ErrorRelay での扱い
+・Desktop Companion からログを取り込むと、マスク済みのテキストとして添付されます（元ファイルは変更しません）。
+・Codex の診断（codex doctor）はマスク後にプレビューし、承認したときだけ添付されます。
+・ErrorRelay は勝手にログや HAR を取得しません。
+
+HAR ファイル（ChatGPT Web の不具合でサポートに求められることがある）
+1. ブラウザで問題のページを開き、開発者ツールを開く（F12 / Ctrl+Shift+I / ⌘+Option+I）
+2. Network タブ →「Preserve log」を有効化
+3. 問題を再現
+4. ダウンロード（HAR）アイコンで保存
+5. HAR には個人情報・ヘッダー・トークンが含まれます。共有前に sanitize（不要なリクエストの削除、Cookie/Authorization の除去）を行ってください。
+6. iPhone / Android のアプリではこの手順は使えません。
+
+最新の公式手順は OpenAI ヘルプセンターの記事（Troubleshooting ChatGPT Error Messages）を確認してください。

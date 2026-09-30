@@ -1,0 +1,26 @@
+Plugin（MCP）の使い方
+
+ErrorRelay は MCP サーバーとして ChatGPT / Codex などから使えます。
+
+A. Codex CLI などローカルの MCP ホスト（stdio）
+　node <インストール先>/packages/mcp/dist/bin.js
+　環境変数：ERRORRELAY_DATA_DIR（保存先）、ERRORRELAY_NO_SAVE=1（保存しない）、ERRORRELAY_TENANT
+　Codex の設定ファイルに mcp サーバーとして登録します（登録方法は Codex の公式ドキュメントを確認）。
+
+B. サーバー経由（HTTP）
+　https://<あなたのサーバー>/mcp　に Bearer トークンで接続します。
+
+会話の例
+　あなた：「このエラー報告して」（画像は PWA でアップロード済み）
+　Plugin：画像を解析（同意後）→「ChatGPT iOS のファイルダウンロードエラーのようです」→ 足りない情報（発生日時・アプリのバージョン）だけ質問 → 報告文のプレビュー → マスク結果 → 報告先と送信方法の確認
+　　・DIRECT なら「この内容で送信しますか？」
+　　・Handoff なら「OpenAI サポート向けに準備しました。公式窓口で貼り付けて送ってください」
+
+Plugin が絶対にしないこと
+　・確認なしの送信
+　・DIRECT でない窓口への「自動送信」
+　・会話全文の勝手な添付
+　・見えていない端末情報の断定
+
+ツール一覧
+　create_error_report / analyze_error_screenshot / add_reproduction_step / add_environment_info / redact_report / preview_report / find_official_report_channel / prepare_submission_package / submit_report / export_report / list_my_reports / get_report

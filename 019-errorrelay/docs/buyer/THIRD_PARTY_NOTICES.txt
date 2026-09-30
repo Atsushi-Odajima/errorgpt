@@ -1,0 +1,18 @@
+THIRD PARTY NOTICES
+
+ErrorRelay は次のオープンソースソフトウェアを利用しています（ライセンス文は各パッケージの LICENSE を参照）。
+
+Runtime
+- hono (MIT) — https://github.com/honojs/hono
+- @hono/node-server (MIT)
+- zod (MIT) — https://github.com/colinhacks/zod
+- fflate (MIT) — https://github.com/101arrowz/fflate
+- @modelcontextprotocol/sdk (MIT) — https://github.com/modelcontextprotocol/typescript-sdk
+
+Development
+- typescript (Apache-2.0), vite (MIT), vitest (MIT), @playwright/test (Apache-2.0), @types/node (MIT)
+
+Optional external tools used by Desktop Companion only when present on your machine
+- pngpaste (MIT), xclip (GPL-2.0), wl-clipboard (GPL-3.0), PowerShell / osascript (OS bundled)
+
+OpenAI, ChatGPT, Codex は OpenAI の商標です。ErrorRelay は OpenAI の公式製品ではなく、提携もしていません。

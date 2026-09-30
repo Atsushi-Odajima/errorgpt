@@ -1,0 +1,10 @@
+ErrorRelay — 次にやること（優先順）
+
+1. 人間による公式ページ再確認（docs/SOURCE_NOTES.md §7 の 5 項目）。変更があれば config/channels.json を更新。
+2. HTTPS で公開デプロイ（OPERATIONS.md）。ERRORRELAY_TOKENS / SIGNING_SECRET / BLOB_KEY を設定。
+3. 実機テスト: iPhone Safari（PWA ホーム追加、Photos からの画像選択、貼り付け）、Android Chrome、Windows/macOS。結果を TEST_REPORT.md に追記。
+4. AI provider を有効化して vision 抽出の精度と「observed/inferred 分離」の挙動を実画像で確認（AI_USAGE.md）。
+5. Codex CLI で MCP (stdio) を登録し、会話例（28章）を再現。/feedback の現行挙動を確認。
+6. ChatGPT Plugin: production MCP URL の tool scan、/.well-known/openai-apps-challenge 設置、privacy/terms/support URL 公開 → 提出（docs/submission/）。
+7. 販売前 check（RELEASE_CHECKLIST.md）。
+8. 任意: Electron/Tauri での Companion GUI、iOS Share Extension / Android Share Intent（別 Phase）。

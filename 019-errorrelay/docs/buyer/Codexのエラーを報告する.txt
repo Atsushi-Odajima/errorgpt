@@ -1,0 +1,21 @@
+Codex のエラーを報告する
+
+公式の報告方法（2026-09-30 時点）
+1. Codex CLI / Desktop の中で「/feedback」と入力 → フィードバック画面が開きます。ログを含めるかは自分で選びます。
+2. GitHub の openai/codex に Issue を作成（公開されます）。テンプレート：Codex App / Extension / CLI / Bug report。
+3. OpenAI ヘルプセンター。
+
+既知の注意点
+・ログ無しで /feedback を送ると、通常のチャットとして送られてしまう不具合の報告があります（openai/codex Issue #44847）。送信後に成功メッセージが出ない場合は GitHub Issue に切り替えてください。
+・Desktop 版では /feedback が見つからないという報告があります（#45512）。
+
+ErrorRelay での手順
+1. ホームの「Codex診断から作る」を押します。
+2. エラー文（ターミナルの出力）を貼り付け、「今起きた」または日時を入力。
+3. Desktop Companion を起動していれば、「codex --version」ボタンでバージョンを取り込めます。
+4. 必要なら「codex doctor --json」ボタン → マスク済みの内容がプレビューされ、承認した場合だけ添付されます。
+   ・ホームディレクトリ、ユーザー名、プロジェクト名、トークンなどは取り除かれます。
+5. 再現手順・期待／実際を整理し、秘密情報をスキャン。
+6. 報告先で「Codex 公式フィードバック（/feedback）」または「GitHub Issue」を選ぶと、貼り付け用の本文（または入力済みの Issue 作成画面）が用意されます。
+7. GitHub Issue は公開です。会社名・顧客名・秘密情報が無いことを確認してから Submit してください。
+8. セキュリティ脆弱性は Issue に書かず、openai/codex の SECURITY.md の手順で報告します。
