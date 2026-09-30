@@ -158,6 +158,9 @@ export function importPackage(zipBytes: Uint8Array, opts: { maxEntries?: number;
   const manifest = JSON.parse(strFromU8(manifestRaw)) as Manifest;
   const reportObj = JSON.parse(strFromU8(reportRaw)) as Record<string, unknown>;
   if (!("tenantId" in reportObj)) reportObj.tenantId = "imported";
+  if (Array.isArray(reportObj.attachments)) {
+    for (const a of reportObj.attachments as Record<string, unknown>[]) if (!("storageRef" in a)) a.storageRef = null;
+  }
   const v = validateReport(reportObj);
   if (!v.ok || !v.report) throw new Error(`Invalid report.json: ${v.errors.join("; ")}`);
   if (manifest.reportId !== v.report.id) warnings.push("manifest reportId does not match report.json");

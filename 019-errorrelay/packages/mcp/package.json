@@ -4,7 +4,21 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "bin": { "errorrelay-mcp": "./dist/bin.js" },
-  "scripts": { "build": "tsc -b" },
-  "dependencies": { "@errorrelay/core": "0.1.0", "@errorrelay/server": "0.1.0", "@modelcontextprotocol/sdk": "^1.12.0", "zod": "^3.24.0" }
+  "bin": {
+    "errorrelay-mcp": "./dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@errorrelay/core": "0.1.0",
+    "@errorrelay/server": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  }
 }
