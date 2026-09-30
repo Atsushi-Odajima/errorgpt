@@ -1,0 +1,31 @@
+export type UiLang = "ja" | "en";
+export const T = {
+  ja: {
+    appName: "ErrorRelay",
+    tagline: "エラー画面を渡すだけ。開発元に伝わるバグ報告をAIがまとめます。",
+    homeFromScreenshot: "スクショから報告を作る",
+    homeFromText: "エラー文から報告を作る",
+    homeFromCodex: "Codex診断から作る",
+    homeHistory: "過去の報告",
+    step1: "1. 証拠を追加",
+    step2: "2. AIが整理",
+    step3: "3. 確認して報告",
+    nowButton: "今起きた",
+    noGuarantee: "報告が必ず修正・閲覧される、またはAIの改善に使われることは保証されません。",
+    handoffOnly: "この窓口へは自動送信できません。準備した内容をご自身で送信してください。",
+  },
+  en: {
+    appName: "ErrorRelay",
+    tagline: "Hand over the error screen. AI writes a bug report developers can act on.",
+    homeFromScreenshot: "Report from a screenshot",
+    homeFromText: "Report from error text",
+    homeFromCodex: "Report from Codex diagnostics",
+    homeHistory: "Past reports",
+    step1: "1. Add evidence",
+    step2: "2. AI organizes",
+    step3: "3. Review and report",
+    nowButton: "It just happened",
+    noGuarantee: "There is no guarantee the report will be fixed, read, or used to improve AI.",
+    handoffOnly: "This channel cannot be sent to automatically. Please send the prepared content yourself.",
+  },
+} as const;

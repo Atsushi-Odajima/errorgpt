@@ -1,0 +1,8 @@
+{
+  "name": "@errorrelay/companion",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "errorrelay-companion": "./dist/bin.js" },
+  "scripts": { "build": "tsc -b" },
+  "dependencies": { "@errorrelay/core": "0.1.0" }
+}

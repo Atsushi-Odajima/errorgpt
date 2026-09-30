@@ -1,0 +1,29 @@
+{
+  "name": "errorrelay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ErrorRelay — AI error report assistant (product #019)",
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "packages/server",
+    "packages/mcp",
+    "apps/pwa",
+    "apps/companion"
+  ],
+  "scripts": {
+    "build": "npm run build -w packages/core && npm run build -w packages/server && npm run build -w packages/mcp && npm run build -w apps/companion && npm run build -w apps/pwa",
+    "typecheck": "tsc -b packages/core packages/server packages/mcp apps/companion && tsc --noEmit -p apps/pwa",
+    "test": "vitest run",
+    "test:e2e": "playwright test -c tests/e2e/playwright.config.ts",
+    "dev:server": "node --enable-source-maps packages/server/dist/bin.js",
+    "dev:pwa": "npm run dev -w apps/pwa"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0"
+  },
+  "engines": { "node": ">=22.13.0" }
+}
