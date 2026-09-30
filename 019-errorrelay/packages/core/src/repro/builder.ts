@@ -51,7 +51,8 @@ function normalizeClause(c: string, lang: "ja" | "en"): string {
  * product context step (which is derived from the chosen product, not invented).
  */
 export function buildReproFromText(description: string, product: ProductId, language?: "ja" | "en"): ReproResult {
-  const lang = language ?? (isJapanese(description) ? "ja" : "en");
+  // The description's own script wins: a Japanese sentence in an English-language report is still split with Japanese rules.
+  const lang: "ja" | "en" = isJapanese(description) ? "ja" : (language ?? "en");
   const raw = description.replace(/\s+/g, " ").trim();
   const clauses = raw.split(lang === "ja" ? JA_SPLIT : EN_SPLIT).map((c) => c.trim()).filter(Boolean);
   const steps: string[] = [];

@@ -59,6 +59,7 @@ export function createApp(cfg: AppConfig) {
     c.header("Referrer-Policy", "no-referrer");
     c.header("Cache-Control", "no-store");
     if (c.req.path.startsWith("/api/")) c.header("Content-Security-Policy", "default-src 'none'");
+    else if (!c.req.path.startsWith("/mcp")) c.header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' http://127.0.0.1:8790 https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
     const origin = c.req.header("origin");
     if (origin && cfg.corsOrigins?.includes(origin)) {
       c.header("Access-Control-Allow-Origin", origin);
@@ -95,7 +96,6 @@ export function createApp(cfg: AppConfig) {
     await next();
   };
   app.use("/api/reports/*", requireAuth);
-  app.use("/api/reports", requireAuth);
   app.use("/api/tools/*", requireAuth);
 
   app.onError((err, c) => {
